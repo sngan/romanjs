@@ -1,65 +1,108 @@
 <!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Romanjs by sngan</title>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="chrome=1">
+        <title>Romanjs by sngan</title>
 
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-  </head>
-  <body>
+        <link rel="stylesheet" href="stylesheets/styles.css">
+        <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <!--[if lt IE 9]>
+        <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+        <script src="javascripts/roman.js"></script>
+        <script src="javascripts/main.js"></script>
+    </head>
+
+    <body>
     <div class="wrapper">
-      <header>
-        <h1>Roman.js</h1>
-        <p>Simple JS library to convert number to roman numeral and vice versa</p>
+        <header>
+            <h1>Roman.js</h1>
+            <p>Simple JS library to convert number to roman numeral and vice versa</p>
 
-        <ul>
-          <li><a href="https://raw.githubusercontent.com/sngan/romanjs/master/roman.js">
-              Download <strong>roman.js</strong>
-          </a></li>
-          <li><a href="">
-              Download <strong>roman.min.js</strong> (TODO)
-          </a></li>
-          <li><a href="https://github.com/sngan/romanjs">
-              View On <strong>GitHub</strong>
-          </a></li>
-        </ul>
-      </header>
-      <section>
-<h1>
-<a id="install" class="anchor" href="#install" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install</h1>
+            <ul>
+                <li>
+                    <a href="https://raw.githubusercontent.com/sngan/romanjs/master/roman.js">
+                        Download <strong>roman.js</strong>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        Download <strong>roman.min.js</strong> (TODO)
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com/sngan/romanjs">
+                        View On <strong>GitHub</strong>
+                    </a>
+                </li>
+            </ul>
+        </header>
+        <section>
+            <h1>
+                <a id="install" class="anchor" href="#install" aria-hidden="true">
+                    <span class="octicon octicon-link"></span>
+                </a>
+                Install
+            </h1>
 
-<p>Just include roman.js</p>
+            <p>Just include roman.js</p>
 
-<p><code>&lt;script src="roman.js"&gt;&lt;/script&gt;</code></p>
+            <p><code>&lt;script src="roman.js"&gt;&lt;/script&gt;</code></p>
 
-<h1>
-<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h1>
+            <h1>
+                <a id="usage" class="anchor" href="#usage" aria-hidden="true">
+                    <span class="octicon octicon-link"></span>
+                </a>
+                Usage
+            </h1>
 
-<ul>
-<li>
-<p><code>Roman.getRomanFromNum(String)</code></p>
+            <ul>
+                <li>
+                    <p><code>Roman.getRomanFromNum(String)</code></p>
+                    <ul>
+                        <li>return corresponding number</li>
+                    </ul>
+                </li>
+                <li>
+                    <p><code>Roman.getNumFromRoman(Number)</code></p>
+                    <ul>
+                        <li>return corresponding roman numeral string</li>
+                    </ul>
+                </li>
+            </ul>
 
-<ul>
-<li>return corresponding number</li>
-</ul>
-</li>
-<li>
-<p><code>Roman.getNumFromRoman(Number)</code></p>
+            <h1>
+                <a id="example" class="anchor" href="#example" aria-hidden="true">
+                    <span class="octicon octicon-link"></span>
+                </a>
+                Example
+            </h1>
 
-<ul>
-<li>return corresponding roman numeral string</li>
-</ul>
-</li>
-</ul>
+            <form name="numToRoman">
+                <label for="numInput">Convert number to roman numeral (1-4999)</label>
+                <input id="numInput" type="number" name="num" min="1" max="4999">
+                <input type="button" value="Convert" onClick="convertToRoman()">
+            </form>
+            <span>Output: </span><span id="numToRomanResult"></span>
+            <br />
+            <form name="romanToNum">
+                <label for="romanInput">Convert roman numeral to number</label>
+                <input id="romanInput" type="text" name="roman">
+                <input type="button" value="Convert" onClick="convertToNum()">
+            </form>
+            <span>Output: </span><span id="romanToNumResult"></span>
+            <br />
+            <br />
 
-<h1>
-<a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>LICENSE</h1>
+            <h1>
+                <a id="license" class="anchor" href="#license" aria-hidden="true">
+                    <span class="octicon octicon-link"></span>
+                </a>
+                LICENSE
+            </h1>
 
 <pre><code>DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
 Version 2, December 2004
@@ -75,13 +118,14 @@ TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
 
 0. You just DO WHAT THE FUCK YOU WANT TO.
 </code></pre>
-      </section>
-      <footer>
-        <p>This project is maintained by <a href="https://github.com/sngan">sngan</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
-      </footer>
+
+        </section>
+        <footer>
+            <p>This project is maintained by <a href="https://github.com/sngan">sngan</a></p>
+            <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+        </footer>
     </div>
     <script src="javascripts/scale.fix.js"></script>
 
-  </body>
+    </body>
 </html>
