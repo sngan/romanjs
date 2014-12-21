@@ -1,0 +1,25 @@
+{
+  "name": "roman.js",
+  "version": "1.0.0",
+  "description": "Simple JS library to convert number to roman numeral and vice versa",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sngan/romanjs.git"
+  },
+  "keywords": [
+    "roman",
+    "numeral",
+    "convert"
+  ],
+  "author": "Sunny Ngan <sunny.ngan.gh@gmail.com>",
+  "license": "WTFPL",
+  "bugs": {
+    "url": "https://github.com/sngan/romanjs/issues"
+  },
+  "homepage": "https://github.com/sngan/romanjs",
+  "devDependencies": {
+    "gulp": "^3.8.10",
+    "gulp-jasmine": "^1.0.1",
+    "gulp-util": "^3.0.1"
+  }
+}
