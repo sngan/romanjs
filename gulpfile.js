@@ -1,5 +1,6 @@
 var gulp = require('gulp'),
-    jshint = require('gulp-jshint');
+    jshint = require('gulp-jshint'),
+    jasmine = require('gulp-jasmine');
 
 gulp.task('lint', function() {
     return gulp.src(['roman.js', 'test/*.js'])
@@ -8,4 +9,9 @@ gulp.task('lint', function() {
         .pipe(jshint.reporter('fail'));
 });
 
-gulp.task('default', ['lint']);
+gulp.task('test', function() {
+    return gulp.src('test/*.js')
+        .pipe(jasmine());
+});
+
+gulp.task('default', ['lint', 'test']);
