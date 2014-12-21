@@ -19,7 +19,7 @@
         };
 
     Roman.getRomanFromNum = function(number) {
-        if (!number || number < 1 || number > 4999) {
+        if (!number || !/^[0-9]+$/.test(number) || number < 1 || number > 4999) {
             throw new Error("Number must be between 1 and 4999");
         }
 
