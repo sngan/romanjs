@@ -18,6 +18,11 @@ describe("Number to roman numeral", function() {
         expect(EXTRA_LARGE_CD).toBe('CDXL');
     });
 
+    it("should convert 4000 correctly", function() {
+        var FOUR_THOUSAND = Roman.getRomanFromNum(4000);
+        expect(FOUR_THOUSAND).toBe('MMMM');
+    });
+
     it("should convert 1984 correctly", function() {
         var ORWELL = Roman.getRomanFromNum(1984);
         expect(ORWELL).toBe('MCMLXXXIV');
