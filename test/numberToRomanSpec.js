@@ -22,4 +22,10 @@ describe("Number to roman numeral", function() {
         var ORWELL = Roman.getRomanFromNum(1984);
         expect(ORWELL).toBe('MCMLXXXIV');
     });
+
+    it("should throw error for converting invalid number", function() {
+        expect(Roman.getRomanFromNum.bind(null, null)).toThrow(new Error("Number must be between 1 and 4999"));
+        expect(Roman.getRomanFromNum.bind(null, 0)).toThrow(new Error("Number must be between 1 and 4999"));
+        expect(Roman.getRomanFromNum.bind(null, 5000)).toThrow(new Error("Number must be between 1 and 4999"));
+    });
 });
