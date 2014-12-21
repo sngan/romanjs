@@ -1,7 +1,8 @@
 (function() {
     'use strict';
 
-    var Roman = {},
+    var root = this,
+        Roman = {},
         romanStringArray = [
             ['I', 'V'],
             ['X', 'L'],
@@ -100,5 +101,12 @@
         return result;
     };
 
-    exports.Roman = Roman;
+    if (typeof exports !== 'undefined') {
+        if (typeof module !== 'undefined' && module.exports) {
+            exports = module.exports = Roman;
+        }
+        exports.Roman = Roman;
+    } else {
+        root.Roman = Roman;
+    }
 }.call(this));
