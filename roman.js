@@ -2,12 +2,21 @@
     'use strict';
 
     var Roman = {},
-        romanString = [
+        romanStringArray = [
             ['I', 'V'],
             ['X', 'L'],
             ['C', 'D'],
             ['M']
-        ];
+        ],
+        romanStringMap = {
+            I: 1,
+            V: 5,
+            X: 10,
+            L: 50,
+            C: 100,
+            D: 500,
+            M: 1000
+        };
 
     Roman.getRomanFromNum = function(number) {
         if (!number || number < 1 || number > 4999) {
@@ -23,14 +32,18 @@
                 return result;
             },
             getRomanString = function(num, order) {
-                var ref = romanString[order],
+                var ref = romanStringArray[order],
                 mod5 = num % 5,
                 rString = '';
 
                 if (num === 9) {
-                    rString = ref[0] + romanString[order + 1][0];
+                    rString = ref[0] + romanStringArray[order + 1][0];
                 } else if (mod5 === 4) {
-                    rString = ref.join('');
+                    if (order === romanStringArray.length - 1) { //4000+
+                        rString = repeat(ref[0], 4);
+                    } else {
+                        rString = ref.join('');
+                    }
                 } else {
                     if (num > 4) {
                         rString = ref[1];
@@ -55,7 +68,36 @@
     };
 
     Roman.getNumFromRoman = function(input) {
-        return input;
+        if (!input) {
+            throw new Error("Invalid roman numeral string");
+        }
+
+        var result = 0,
+            index = 0,
+            currentChar,
+            currentVal,
+            lastVal;
+
+        while(index < input.length) {
+            currentChar = input[index];
+            currentVal = romanStringMap[currentChar];
+            if (currentVal === undefined) {
+                throw new Error("Invalid roman numeral string");
+            } else {
+                if (lastVal && currentVal > lastVal) {
+                    if (currentVal / lastVal % 5 !== 0){
+                        throw new Error("Invalid roman numeral string");
+                    }
+                    result = result - lastVal * 2 + currentVal;
+                    lastVal = currentVal - lastVal;
+                } else {
+                    result = result + currentVal;
+                    lastVal = currentVal;
+                }
+                index = index + 1;
+            }
+        }
+        return result;
     };
 
     exports.Roman = Roman;
