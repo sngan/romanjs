@@ -23,6 +23,11 @@ describe("Roman numeral to number", function() {
         expect(PIE).toBe(314);
     });
 
+    it("should trim spaces and works with lowercase", function() {
+        var SIXTY_SIX = Roman.getNumFromRoman(' LxvI');
+        expect(SIXTY_SIX).toBe(66);
+    });
+
     it("should throw error for converting invalid string", function() {
         expect(Roman.getNumFromRoman.bind(null, null)).toThrow(new Error("Invalid roman numeral string"));
         expect(Roman.getNumFromRoman.bind(null, 'ICUP')).toThrow(new Error("Invalid roman numeral string"));
