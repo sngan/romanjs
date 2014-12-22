@@ -69,7 +69,12 @@
     };
 
     Roman.getNumFromRoman = function(input) {
-        if (!input) {
+        var isValidRomanInput = function() {
+            //REF: http://stackoverflow.com/a/267405
+            var regExp = /^M{0,4}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$/;
+            return regExp.test(input);
+        };
+        if (!input || !isValidRomanInput()) {
             throw new Error("Invalid roman numeral string");
         }
 
@@ -82,21 +87,15 @@
         while(index < input.length) {
             currentChar = input[index];
             currentVal = romanStringMap[currentChar];
-            if (currentVal === undefined) {
-                throw new Error("Invalid roman numeral string");
+
+            if (lastVal && currentVal > lastVal) {
+                result = result - lastVal * 2 + currentVal;
+                lastVal = currentVal - lastVal;
             } else {
-                if (lastVal && currentVal > lastVal) {
-                    if (currentVal / lastVal % 5 !== 0){
-                        throw new Error("Invalid roman numeral string");
-                    }
-                    result = result - lastVal * 2 + currentVal;
-                    lastVal = currentVal - lastVal;
-                } else {
-                    result = result + currentVal;
-                    lastVal = currentVal;
-                }
-                index = index + 1;
+                result = result + currentVal;
+                lastVal = currentVal;
             }
+            index = index + 1;
         }
         return result;
     };

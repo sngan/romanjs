@@ -27,5 +27,7 @@ describe("Roman numeral to number", function() {
         expect(Roman.getNumFromRoman.bind(null, null)).toThrow(new Error("Invalid roman numeral string"));
         expect(Roman.getNumFromRoman.bind(null, 'ICUP')).toThrow(new Error("Invalid roman numeral string"));
         expect(Roman.getNumFromRoman.bind(null, 'MIXCD')).toThrow(new Error("Invalid roman numeral string"));
+        expect(Roman.getNumFromRoman.bind(null, 'CXCX')).toThrow(new Error("Invalid roman numeral string"));
+        expect(Roman.getNumFromRoman.bind(null, 'MCDC')).toThrow(new Error("Invalid roman numeral string"));
     });
 });
