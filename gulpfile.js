@@ -1,9 +1,7 @@
 var gulp = require('gulp'),
     jshint = require('gulp-jshint'),
     jasmine = require('gulp-jasmine'),
-    uglify = require('gulp-uglify'),
-    sourcemaps = require('gulp-sourcemaps'),
-    rename = require('gulp-rename');
+    uglify = require('gulp-uglifyjs');
 
 gulp.task('lint', function() {
     return gulp.src(['roman.js', 'test/*.js'])
@@ -19,10 +17,10 @@ gulp.task('test', function() {
 
 gulp.task('compress', function() {
     return gulp.src('roman.js')
-        .pipe(sourcemaps.init())
-        .pipe(uglify())
-        .pipe(rename('roman.min.js'))
-        .pipe(sourcemaps.write('.'))
+        .pipe(uglify('roman.min.js', {
+            outSourceMap: true,
+            sourceRoot: './'
+        }))
         .pipe(gulp.dest('dist'));
 });
 
