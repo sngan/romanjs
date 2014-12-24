@@ -1,4 +1,4 @@
-var Roman = require('../Roman').Roman;
+var Roman = require('../roman').Roman;
 
 describe("Roman numeral to number", function() {
     'use strict';
