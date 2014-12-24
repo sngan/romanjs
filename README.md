@@ -1,5 +1,7 @@
 roman.js
 ==========================
+[![Build Status](https://travis-ci.org/sngan/romanjs.svg?branch=master)](https://travis-ci.org/sngan/romanjs)
+
 Simple JS library to convert number to roman numeral and vice versa.
 
 #Install
